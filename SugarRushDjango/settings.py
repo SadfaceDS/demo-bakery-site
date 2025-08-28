@@ -20,12 +20,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^v0du(%tr@#tuo1_q^@)h48tric^_tq7@2+r#pz@)7*5lo#h%j'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.50.121', '127.0.0.1']
+ALLOWED_HOSTS = [
+        "thewebguru.org",
+        ".thewebguru.org",
+        "demobakery1.thewebguru.org",
+    ]
+CSRF_TRUSTED_ORIGINS = [
+        "https://thewebguru.org",
+        "https://*.thewebguru.org",
+    ]
 
 
 # Application definition
@@ -113,29 +121,40 @@ USE_I18N = True
 USE_TZ = True
 
 
-# 10 minutes
+# 100 minutes
 SESSION_COOKIE_AGE = 6000
-
-# session ends when browser closes
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-if os.getenv("DJANGO_ENV") == "production":
-    # when action it stays on
-    SESSION_SAVE_EVERY_REQUEST = True
-    SESSION_COOKIE_HTTPONLY = True
-    CSRF_COOKIE_HTTPONLY = True
+SESSION_SAVE_EVERY_REQUEST = True
 
-    SECURE_SSL_REDIRECT = False
-    SECURE_HSTS_SECONDS = 31536000
+
+if os.getenv("DJANGO_ENV") == "production":
+
+    USE_X_FORWARDED_HOST = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+    # Force HTTPS
+    SECURE_SSL_REDIRECT = True
+
+    # Cookies
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
+    SESSION_COOKIE_HTTPONLY = True
 
-    SECURE_BROWSER_XSS_FILTER = True
+    CSRF_COOKIE_HTTPONLY = False
+
+    # SameSite
+    SESSION_COOKIE_SAMESITE = "Lax"
+    CSRF_COOKIE_SAMESITE = "Lax"
+
+    # HSTS
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = False
+
+    # Security headers
     SECURE_CONTENT_TYPE_NOSNIFF = True
-    X_FRAME_OPTIONS = 'DENY'
-    USE_X_FORWARDED_HOST = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    X_FRAME_OPTIONS = "DENY"
+    SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 else:
     SECURE_SSL_REDIRECT = False
     SESSION_COOKIE_SECURE = False
