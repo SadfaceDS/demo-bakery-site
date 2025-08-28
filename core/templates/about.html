@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    About Demo Bakery 1
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<!-- Navigation Bar -->
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'menu' %}">Menu</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- About Us Section -->
+        <section class="about-us">
+            <div class="outer-box-item">
+                <div class="inner-box-item">
+                    <h2>About Me</h2>
+                </div>
+            </div>
+            <div class="about-content">
+                <img src="{% static 'images/demoBakery1.png' %}" alt="My Bakery Logo">
+                <div class="about-text">
+                    <p>Demo Bakery 1 was founded in 1776 by John Doe, with a passion for bringing joy through baked goods. I use only the finest ingredients to create delicious treats that satisfy your sweet tooth.</p>
+                    <p>I believe in the power of baking to bring people together, and I'm committed to making every bite a delightful experience.</p>
+                    <h3>My Ingredients</h3>
+                    <p>I source the freshest local ingredients to ensure the highest quality in every bite. From organic flour to free-range eggs, I care about what goes into my baked goods.</p>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="testimonials">
+                <h3>What My Customers Say</h3>
+                {% if testimonials %}
+                    {% for i in testimonials %}
+                        <blockquote>
+                            "{{ i.message }}" — {{ i.name }}
+                        </blockquote>
+                    {% endfor %}
+                {% else %}
+                    <blockquote>
+                        "No testimonials at this time"
+                    </blockquote>
+                {% endif %}
+            </div>
+        </section>
+
+ {% endblock %}

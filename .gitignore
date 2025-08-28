@@ -1,0 +1,58 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.log
+
+# === Django ===
+*.sqlite3
+*.db
+db.sqlite3
+jobs.sqlite
+*.pot
+*.pyc
+*.cover
+*.cache
+*.mo
+*.pid
+*.tar.gz
+*.zip
+local_settings.py
+*.secret
+staticfiles/
+media/
+/media/
+# === Environment Files ===
+.env
+*.env
+.envrc
+
+# === Editor / IDEs ===
+.idea/
+.vscode/
+
+# === Temporary / System Files ===
+.DS_Store
+*.bak
+*.tmp
+*.swp
+Thumbs.db
+
+# === Virtual Environments ===
+venv/
+env/
+.venv/
+ENV/
+ENV/
+
+# === Frontend (if applicable) ===
+node_modules/
+dist/
+*.map
+
+# === Rust (if applicable) ===
+target/
+Cargo.lock

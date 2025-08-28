@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Demo Bakery 1 Menu
+{% endblock %}
+
+{% block content %}
+{% load static%}
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+
+    <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'menu' %}">Menu</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Menu Section -->
+
+        <section class="menu">
+            <div class="outer-box">
+                <div class="inner-box">
+                    <h1>Our Menu</h1>
+                </div>
+            </div>
+
+            {% if categories %}
+                {% for food_type, items in categories.items %}
+
+                <div class="menu-category">
+
+                    <div class="outer-box-item">
+                        <div class="inner-box-item">
+                            <h2>{{food_type}}</h2>
+                        </div>
+                    </div>
+                    <h3></h3>
+                    {% for item in items %}
+                    <div class="menu-item">
+                        {% if item.picture %}
+                        <img src="{{ item.picture.url }}" alt="{{ item.item_name }}">
+                        {% else %}
+                        <img src="#" alt="{{ item.item_name }}">
+                        {% endif %}
+                        <h4>{{ item.item_name }}</h4>
+                        <p>{{ item.item_description }}</p>
+                        <span>${{ item.item_price }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="menu-category">
+                    <h3>No items at this time</h3>
+                </div>
+            {% endif %}
+        </section>
+
+
+{% endblock %}

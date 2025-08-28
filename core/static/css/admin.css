@@ -1,0 +1,140 @@
+
+
+nav {
+    background-color: #ff6f61; /* Coral */
+    padding: 1em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+nav a:hover {
+    color: #ffd700; /* Yellow */
+}
+
+.actionView{
+    height: auto;
+    background: linear-gradient(to right, #ffe6cc, #ffcccc); /* Pink-to-peach gradient */
+
+}
+.actionButton{
+    display: flex;
+    justify-content: center;
+    padding-top: 3vh;
+    gap: 10px;
+}
+.actionButton button{
+    width: 8vw;
+    height: 6vh;
+    border-radius: 100px;
+    cursor: pointer;
+    background-color: rgb(255, 111, 97);
+    transition: 3s;
+}
+.actionButton button:hover{
+    background-color: #e65a50;
+}
+
+.actionDiv{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.actionDiv.active {
+    display: flex;
+}
+
+.mainGrid{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    width: 80vw;
+    padding-top: 20px;
+}
+.gridItem{
+    justify-content: space-between;
+
+}
+
+
+
+
+
+
+/*menu items*/
+
+.menu {
+    padding: 2em;
+    background: linear-gradient(to right, #ffe6cc, #ffcccc); /* Pink-to-peach gradient */
+    height: 80vh;
+}
+
+.menu-category {
+    margin-bottom: 2em;
+}
+
+.menu-category h3 {
+    font-size: 1.5em;
+    color: #ff6f61; /* Coral */
+    margin-bottom: 1em;
+}
+
+.menu-category {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+}
+
+.menu-item {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 3s;
+}
+.menu-item:hover {
+    transform: scale(1.04)
+}
+
+.menu-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1em;
+}
+
+.menu-item h4 {
+    font-size: 1.2em;
+    color: #ff6f61; /* Coral */
+    margin-bottom: 0.5em;
+}
+
+.menu-item p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 0.5em;
+}
+
+.menu-item span {
+    font-weight: bold;
+    color: #ffd700; /* Yellow */
+}
+
+
+
+

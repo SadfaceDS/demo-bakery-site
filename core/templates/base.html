@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="DEMO BAKERY 1 offers delicious cakes, cupcakes, cookies, and pastries made fresh daily in WHEELING, WV. Call (123) 456-7890 or visit us today!">
+    <meta name="keywords" content="bakery, WHEELING bakery, cupcakes, cookies, cakes, pastries, fresh bread, baked goods, custom cakes, Northern Panhandle WV, local bakery, wedding cakes, birthday cakes, sugar rush bakery, dessert shop WHEELING">
+    <meta name="author" content="The Web Guru">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DEMO BAKERY 1 | Fresh Baked Goods in WHEELING WV">
+    <meta property="og:description" content="Homemade cakes, cookies, pastries and more at DEMO BAKERY 1 in WHEELING, WV. Custom orders welcome!">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="DEMO BAKERY 1">
+
+    <meta name="geo.region" content="US-WV">
+    <meta name="geo.placename" content="WHEELING">
+    <meta name="geo.position" content="39.9209;-80.7448">
+    <meta name="ICBM" content="39.9209, -80.7448">
+
+    <link rel="canonical" href="">
+
+    <title>{% block title %} {% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+
+
+
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Demo Bakery 1</div>
+            <div class="footer-contact">
+                <p>123 Main St </p>
+                <p><a class="underline">(123) 456-7890</a> | <a class="underline">demobakery1@slowmail.com</a></p>
+            </div>
+            <div class="footer-social">
+                <a  href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img class="underline" src="{% static 'images/facebook.png' %}" alt="facebook logo"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

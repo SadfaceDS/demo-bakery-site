@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Demo Bakery 1
+{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <img class="imageHead" src="{% static 'images/demoBakery1.png' %}">
+    </header>
+
+    <!-- Highlights Section -->
+    <section class="highlights">
+        <a href="{% url 'menu' %}" class="cta-button">See the Menu</a>
+
+        <h2 class="starTreats">Our Five Star Treats</h2>
+        <div class="highlight-strip">
+            {% if starTreats %}
+            {% for i in starTreats %}
+            <div class="highlight-item">
+                <h3>{{i.name}}</h3>
+                <p>{{i.message}}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="highlight-item">
+                <h3>No treats</h3>
+
+            </div>
+            {% endif %}
+
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="typewriter-wrapper">
+            <h2>Ready to taste the magic?</h2>
+        </div>
+        <a href="{% url 'about' %}" class="cta-button">About Me</a>
+    </section>
+
+
+
+
+
+
+
+
+
+{% endblock%}
