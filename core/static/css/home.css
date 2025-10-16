@@ -94,7 +94,7 @@
      align-items: center;
      justify-content: center;
      flex-direction: column;
-     background: url('/static/images/demoBakery2.png') no-repeat center/cover;
+     background: url('/bakery/static/images/demoBakery2.png') no-repeat center/cover;
 
 }
 .cta-section h2{
