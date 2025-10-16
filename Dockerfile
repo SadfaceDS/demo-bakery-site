@@ -35,7 +35,7 @@ ENV PYTHONUNBUFFERED=1 \
     DJANGO_SETTINGS_MODULE=SugarRushDjango.settings \
     TZ=EST \
     DJANGO_ENV=production \
-    SECRET_KEY='ru4pRPoPof5so84NuEfy-6WPPGqGIZ8cWYt-L2VgRrfZtLgT_juk03KkUTezTPpU7J8'
+    SECRET_KEY=''
 
 WORKDIR /SugarRushDjango
 
